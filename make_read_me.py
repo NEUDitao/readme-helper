@@ -112,15 +112,30 @@ EXIT. Exit""")
         install_name = sec_title('Installation')
 
         install = read_with_code()
-        print('Installation instructions complete!!\n')
+        print(install_name, 'instructions complete!\n')
 
         
     elif option == '2':
-        pass
+        usage_name = sec_title('How to Use')
+
+        usage = read_with_code()
+        print(usage_name, 'instructions complete!\n')
+
+        
     elif option == '3':
-        pass
+        ex_name = sec_title('Examples')
+
+        ex = read_with_code()
+        print(ex_name, 'instructions complete!\n')
+
+        
     elif option == '4':
-        pass
+        techs_name = sec_title('Built With')
+
+        techs = read_with_code()
+        print(techs_name, 'instructions complete!\n')
+
+        
     elif option == '5':
         pass
     elif option == '6':
