@@ -23,13 +23,12 @@ your inline code blocks on one line though!)
 
 def sec_title(default_str: str) -> str:
     """Reads in a section title"""
-     name = input('What would you like to title this section? '
-                             + '(default is', default_str, '\n')
-     if name:
-         return name
-     return default_str
-    
-    
+    name = input('What would you like to title this section? '
+                 + '(default is', default_str, '\n')
+    if name:
+        return name
+    return default_str
+
 
 print('Welcome to the \u001b[31;1mR\u001b[32;1mE\u001b[33;1mA'
       + '\u001b[34;1mD\u001b[35;1mM\u001b[36;1mE \u001b[31;1mm'
@@ -106,47 +105,59 @@ EXIT. Exit""")
         print('Bye bye!\n\n')
         break
 
-    
-    elif option == '1':
-        
+    elif option == '1':        
         install_name = sec_title('Installation')
 
         install = read_with_code()
         print(install_name, 'instructions complete!\n')
 
-        
     elif option == '2':
         usage_name = sec_title('How to Use')
 
         usage = read_with_code()
         print(usage_name, 'instructions complete!\n')
 
-        
     elif option == '3':
         ex_name = sec_title('Examples')
 
         ex = read_with_code()
         print(ex_name, 'instructions complete!\n')
 
-        
     elif option == '4':
         techs_name = sec_title('Built With')
 
         techs = read_with_code()
         print(techs_name, 'instructions complete!\n')
 
-        
     elif option == '5':
-        pass
+        contr_name = sec_title('Contribute')
+
+        contr = read_with_code()
+        print(contr_name, 'instructions complete!\n')
+
     elif option == '6':
-        pass
+        version_name = sec_title('Version History')
+
+        version = read_with_code()
+        print(contr_name, 'instructions complete!\n')
+
     elif option == '7':
-        pass
+        authors_name = sec_title('Authors')
+
+        author = read_with_code()
+        print(contr_name, 'instructions complete!\n')
+
     elif option == '8':
-        pass
+        ackn_name = sec_title('Acknowledgements')
+
+        ackn = read_with_code()
+        print(ackn_name, 'instructions complete!\n')
+
     elif option == '9':
         pass
+
     elif option == '10':
         pass
+
     else:
         print('\n\u001b[31;1mInvalid input, try again\u001b[31;0m')
