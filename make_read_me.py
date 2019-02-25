@@ -72,8 +72,6 @@ title = input('\n\nNow, what is the title of your project?\n')
 while not title:
     title = input('\n\nYou seemed to input an empty string... try again:\n')
 
-title = '# ' + title
-
 print('Got it! You can change these at any time later on too.')
 
 time.sleep(1)
@@ -158,7 +156,7 @@ EXIT. Exit""")
     elif option == '7':
         authors_name = sec_title('Authors')
 
-        author = read_with_list()
+        authors = read_with_list()
         print(contr_name, 'section complete!\n')
 
     elif option == '8':
@@ -233,14 +231,16 @@ EXIT. Exit""")
             final_file += ('## ' + contr_name + '\n' + contr + '\n')
         if version:
             final_file += ('## ' + version_name + '\n' + version + '\n')
-        if author:
-            final_file += ('## ' + author_name + '\n' + author + '\n')
+        if authors:
+            final_file += ('## ' + authors_name + '\n' + authors + '\n')
         if ackn:
             final_file += ('## ' + ackn_name + '\n' + ackn + '\n')
         if lic:
             final_file += ('## ' + lic_name + '\n' + lic + '\n')
             
-            
+        ff = open(file_name, "w")
+        ff.write(final_file)
+        ff.close()
         
         print('Your file is saved at', file_name)
         print('Bye bye!\n\n')
