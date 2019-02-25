@@ -47,6 +47,9 @@ def sec_title(default_str: str) -> str:
     return default_str
 
 
+################################################################################
+
+
 print('Welcome to the \u001b[31;1mR\u001b[32;1mE\u001b[33;1mA'
       + '\u001b[34;1mD\u001b[35;1mM\u001b[36;1mE \u001b[31;1mm'
       + '\u001b[32;1ma\u001b[33;1mk\u001b[34;1me\u001b[35;1mr'
@@ -214,10 +217,34 @@ EXIT. Exit""")
 
     elif option == 'EXIT':
         print('Thank you for using my tool!')
-        # TODO write the markdownifying code, can't use funciton b/c of globals. 
+        # TODO write the markdownifying code, can't use funciton b/c of globals.
+        final_file = ''
+        final_file += ('# ' + title + '\n' + descr + '\n')
+
+        if install:
+            final_file += ('## ' + install_name + '\n' + install + '\n')
+        if usage:
+            final_file += ('## ' + usage_name + '\n' + usage + '\n')
+        if ex:
+            final_file += ('## ' + ex_name + '\n' + ex + '\n')
+        if techs:
+            final_file += ('## ' + techs_name + '\n' + techs + '\n')
+        if contr:
+            final_file += ('## ' + contr_name + '\n' + contr + '\n')
+        if version:
+            final_file += ('## ' + version_name + '\n' + version + '\n')
+        if author:
+            final_file += ('## ' + author_name + '\n' + author + '\n')
+        if ackn:
+            final_file += ('## ' + ackn_name + '\n' + ackn + '\n')
+        if lic:
+            final_file += ('## ' + lic_name + '\n' + lic + '\n')
+            
+            
+        
         print('Your file is saved at', file_name)
         print('Bye bye!\n\n')
-        break
+        exit()
 
     else:
         print('\n\u001b[31;1mInvalid input, try again\u001b[31;0m')
