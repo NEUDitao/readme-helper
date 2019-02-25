@@ -16,6 +16,23 @@ def read_with_code() -> str:
 (hint, you can write inline code blocks using "`" marks, and you can write
 blocks of code by surrounding what you want to write with "```". Try to keep
 your inline code blocks on one line though!)
+(you can also write bold with double underscores/asterisks, and italics with
+single underscores/asterisks surrounding your block of text!)
+(and as before, press CTRL-D to end your block)
+|------------------------------------------------------------------------------|
+""")
+    return sys.stdin.read()
+
+
+def read_with_list() -> str:
+    """Reads in input that's meant to have a list in it (or not)"""
+    print(
+        """\nWrite your text block for the section below!
+(hint, you can write lists using "1.", "2.", "3."... etc for ordered lists, or 
+"-"'s to write undordered lists)
+(you can also write bold with double underscores/asterisks, and italics with
+single underscores/asterisks surrounding your block of text!)
+(and as before, press CTRL-D to end your block)
 |------------------------------------------------------------------------------|
 """)
     return sys.stdin.read()
@@ -98,14 +115,8 @@ EXIT. Exit""")
                                                                      '','','',
                                                                      '','','',
                                                                      '')
-    if option == 'EXIT':
-        print('Thank you for using my tool!')
-# TODO        save_file()
-        print('Your file is saved at', file_name)
-        print('Bye bye!\n\n')
-        break
 
-    elif option == '1':        
+    if option == '1':        
         install_name = sec_title('Installation')
 
         install = read_with_code()
@@ -126,8 +137,8 @@ EXIT. Exit""")
     elif option == '4':
         techs_name = sec_title('Built With')
 
-        techs = read_with_code()
-        print(techs_name, 'instructions complete!\n')
+        techs = read_with_list()
+        print(techs_name, 'section complete!\n')
 
     elif option == '5':
         contr_name = sec_title('Contribute')
@@ -138,26 +149,76 @@ EXIT. Exit""")
     elif option == '6':
         version_name = sec_title('Version History')
 
-        version = read_with_code()
-        print(contr_name, 'instructions complete!\n')
+        version = read_with_list()
+        print(contr_name, 'section complete!\n')
 
     elif option == '7':
         authors_name = sec_title('Authors')
 
-        author = read_with_code()
-        print(contr_name, 'instructions complete!\n')
+        author = read_with_list()
+        print(contr_name, 'section complete!\n')
 
     elif option == '8':
         ackn_name = sec_title('Acknowledgements')
 
-        ackn = read_with_code()
-        print(ackn_name, 'instructions complete!\n')
+        ackn = read_with_list()
+        print(ackn_name, 'section complete!\n')
 
     elif option == '9':
-        pass
+        lic_name = sec_title('License and Copyright')
 
-    elif option == '10':
-        pass
+        lic = read_with_list()
+        print(lic_name, 'section complete!\n')
+
+    elif option == '0':
+        
+        print("\nCool, let's redo some of the earlier fields!")
+        file_name = input('\u001b[0;1mTo get started, where would you like to store'
+                  + ' your file? (default is README.md)\n')
+
+        if file_name:
+            pass
+        else:
+            file_name = 'README.md'
+
+        print('Alright, cool, your file will be stored at ' + file_name)
+
+        time.sleep(1)
+
+        title = input('\n\nNow, what is the title of your project?\n')
+
+        while not title:
+            title = input('\n\nYou seemed to input an empty string... try again:\n')
+
+        title = '# ' + title
+
+        print('Got it! You can change these at any time later on too.')
+
+        time.sleep(1)
+
+        print(
+            """\n\nOne last thing... can you describe your project? For instance, 
+        describe what your project does, what it's based off of, and if it exists,
+        what other project inspired you to make it. If you want to add a link, just
+        do [NAME](URL) for wherever you want to stick it) When you're done, send an
+        EOF object my way (press CTRL + D)!
+
+        Oh, and please be careful with line length. Anything over 80 characters will be
+        wrapped for you, but that means it'll probably not look so hot on GitHub's 
+        preview page. 80 characters is the width of a standard terminal. Just try not to
+        make it longer than the following line.
+        |------------------------------------------------------------------------------|
+        """)
+
+        descr = sys.stdin.read()
+
+    elif option == 'EXIT':
+        print('Thank you for using my tool!')
+        # TODO write the markdownifying code, can't use funciton b/c of globals. 
+        print('Your file is saved at', file_name)
+        print('Bye bye!\n\n')
+        break
 
     else:
         print('\n\u001b[31;1mInvalid input, try again\u001b[31;0m')
+
