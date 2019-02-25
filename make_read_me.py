@@ -21,7 +21,8 @@ single underscores/asterisks surrounding your block of text!)
 (and as before, press CTRL-D to end your block)
 |------------------------------------------------------------------------------|
 """)
-    return sys.stdin.read()
+    temp = sys.stdin.read()
+    return temp
 
 
 def read_with_list() -> str:
@@ -41,7 +42,7 @@ single underscores/asterisks surrounding your block of text!)
 def sec_title(default_str: str) -> str:
     """Reads in a section title"""
     name = input('What would you like to title this section? '
-                 + '(default is', default_str, '\n')
+                 + '(default is ' +  default_str + ')\n')
     if name:
         return name
     return default_str
