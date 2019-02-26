@@ -136,7 +136,7 @@ EXIT. Exit""")
         ex_name = sec_title('Examples')
 
         ex = read_with_code()
-        print(ex_name, 'instructions complete!\n')
+        print(ex_name, 'section complete!\n')
 
     elif option == '4':
         techs_name = sec_title('Built With')
@@ -177,8 +177,8 @@ EXIT. Exit""")
     elif option == '0':
         
         print("\nCool, let's redo some of the earlier fields!")
-        file_name = input('\u001b[0;1mTo get started, where would you like to store'
-                  + ' your file? (default is README.md)\n')
+        file_name = input('\u001b[0;1mTo get started, where would you like ' + 
+                'to store your file? (default is README.md)\n')
 
         if file_name:
             pass
@@ -194,25 +194,23 @@ EXIT. Exit""")
         while not title:
             title = input('\n\nYou seemed to input an empty string... try again:\n')
 
-        title = '# ' + title
-
         print('Got it! You can change these at any time later on too.')
 
         time.sleep(1)
 
         print(
-            """\n\nOne last thing... can you describe your project? For instance, 
-        describe what your project does, what it's based off of, and if it exists,
-        what other project inspired you to make it. If you want to add a link, just
-        do [NAME](URL) for wherever you want to stick it) When you're done, send an
-        EOF object my way (press CTRL + D)!
+"""\n\nOne last thing... can you describe your project? For instance, 
+describe what your project does, what it's based off of, and if it exists,
+what other project inspired you to make it. If you want to add a link, just
+do [NAME](URL) for wherever you want to stick it) When you're done, send an
+EOF object my way (press CTRL + D)!
 
-        Oh, and please be careful with line length. Anything over 80 characters will be
-        wrapped for you, but that means it'll probably not look so hot on GitHub's 
-        preview page. 80 characters is the width of a standard terminal. Just try not to
-        make it longer than the following line.
-        |------------------------------------------------------------------------------|
-        """)
+Oh, and please be careful with line length. Anything over 80 characters will be
+wrapped for you, but that means it'll probably not look so hot on GitHub's 
+preview page. 80 characters is the width of a standard terminal. Just try not to
+make it longer than the following line.
+|------------------------------------------------------------------------------|
+""")
 
         descr = sys.stdin.read()
 
