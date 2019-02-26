@@ -240,7 +240,8 @@ make it longer than the following line.
         if lic:
             final_file += ('## ' + lic_name + '\n' + lic + '\n')
 
-        wrapped_file = '\n'.join(line.strip() for line in re.findall(r'.{1,80}(?:\s+|$)', final_file))
+        wrapped_file = '\n'.join(line.strip() for line in re.findall(
+            r'.{1,80}(?:\s+|$)', final_file))
         ff = open(file_name, "w")
         ff.write(wrapped_file)
         ff.close()
