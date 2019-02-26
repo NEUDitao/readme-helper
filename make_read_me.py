@@ -7,6 +7,7 @@ __email__ = 'li.edwa@husky.neu.edu'
 
 import sys
 import time
+import re
 
 
 def read_with_code() -> str:
@@ -238,9 +239,10 @@ make it longer than the following line.
             final_file += ('## ' + ackn_name + '\n' + ackn + '\n')
         if lic:
             final_file += ('## ' + lic_name + '\n' + lic + '\n')
-            
+
+        wrapped_file = '\n'.join(line.strip() for line in re.findall(r'.{1,80}(?:\s+|$)', final_file))
         ff = open(file_name, "w")
-        ff.write(final_file)
+        ff.write(wrapped_file)
         ff.close()
         
         print('Your file is saved at', file_name)
