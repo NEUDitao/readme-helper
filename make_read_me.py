@@ -99,6 +99,12 @@ print("\nCool, now that we're done with setting up, we can get to "
 
 time.sleep(1)
 
+install, usage, ex, techs, contr, version, authors, ackn, lic = ('','',
+                                                                 '','','',
+                                                                 '','','',
+                                                                 '')
+
+
 while(True):
     print("\nEnter a letter to edit a section:, or EXIT to save and exit")
     print("""1. Installation
@@ -113,10 +119,6 @@ while(True):
 0. Edit previous fields
 EXIT. Exit""")
     option = input()
-    install, usage, ex, techs, contr, version, authors, ackn, lic = ('','',
-                                                                     '','','',
-                                                                     '','','',
-                                                                     '')
 
     if option == '1':        
         install_name = sec_title('Installation')
